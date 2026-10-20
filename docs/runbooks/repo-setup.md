@@ -1,8 +1,10 @@
 # Creating the MediGuard Repository: Step by Step
 
-**Who does it:** one person, once (the gateway/infra maintainer, or Linuka until that role is named). It takes about 45 minutes.
-**Result:** one private GitHub repository, `mediguard`, holding frontend, backend, the four components, infrastructure, evaluation and all documentation, with each owner's folder protected by `CODEOWNERS`.
-**Reference:** `PROJECT_BLUEPRINT.md` Section 11 is the specification. This file is how to build it.
+**Status:** done. The repository skeleton is in place. Do not recreate it. `scripts/bootstrap_repo.sh` has been removed.
+
+**Who did it:** one person, once (the gateway/infra maintainer, or Linuka until that role is named).
+**Result:** one private GitHub repository holding frontend, backend, the four components, infrastructure, evaluation and all documentation, with each owner's folder protected by `CODEOWNERS`.
+**Reference:** `PROJECT_BLUEPRINT.md` Section 11 is the specification. This file is the record of how the repository was built.
 
 ---
 
@@ -38,7 +40,7 @@ mediguard/
 │   ├── blueprints/                   README.md (index) + the 5 shared-part blueprints
 │   ├── architecture/  adr/  api/  figures/  reports/  meetings/
 │   └── runbooks/                     repo-setup.md (this file), deploy, demo-day, incident ...
-└── scripts/                          bootstrap_repo.sh, check_structure.sh, setup_dev.sh ...
+└── scripts/                          check_structure.sh, setup_dev.sh ...
 ```
 
 **Frontend and backend are in the same repository** under `apps/`. Components are not in `apps/` because they are research modules with their own training and evaluation folders.
@@ -124,17 +126,11 @@ Check after copying:
 
 Linuka's existing C1 code and Falcon demo go in later, by Linuka, on a `c1/import-existing` branch: code to `components/c1-privacy-assistant/src/c1/`, the standalone UI to `components/c1-privacy-assistant/demo/falcon/`.
 
-### Step 5. Run the bootstrap script
+### Step 5. Bootstrap (already completed)
 
-Set the GitHub usernames so `CODEOWNERS` is correct from the first commit. Until the gateway owner is named, use one maintainer.
+The skeleton, `.github/` files, component README stubs and helper scripts were created once. `scripts/bootstrap_repo.sh` is no longer in the tree. Do not try to run it.
 
-```bash
-GH_LINUKA=@linuka-handle GH_NISITH=@nisith-handle GH_YASAS=@yasas-handle \
-GH_SANDUL=@sandul-handle GH_GATEWAY=@linuka-handle \
-bash scripts/bootstrap_repo.sh
-```
-
-It creates every missing folder (each with a `.gitkeep`), the root files, `.github/` files, per-component `README.md` stubs and helper scripts. It never overwrites a file, so it is safe to re-run.
+If `CODEOWNERS` still has `REPLACE_` placeholders, put the real GitHub handles in `.github/CODEOWNERS` now.
 
 ### Step 6. Check the result
 

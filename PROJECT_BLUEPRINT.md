@@ -701,12 +701,9 @@ A stand-in must pass the same contract tests as the real service. To run the who
 
 ### 11.10 Creating the repository
 
-The full step-by-step is `docs/runbooks/repo-setup.md`. In short:
+The repository already exists. The one-time bootstrap script has been removed.
 
-1. Create an empty private repository on GitHub (no README, no .gitignore).
-2. Clone it, unzip the starter pack into it, run `bash scripts/bootstrap_repo.sh`.
-3. Check with `bash scripts/check_structure.sh`, commit, push to `main`.
-4. Turn on branch protection and `CODEOWNERS` review, then each owner works on a branch in their own folder.
+The original step-by-step is kept in `docs/runbooks/repo-setup.md`. New work: clone, run `bash scripts/setup_dev.sh`, and work on a branch in your own folder. `bash scripts/check_structure.sh` still checks the layout.
 
 ## 12. Shared Timeline (24 weeks)
 
